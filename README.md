@@ -7,9 +7,15 @@ The study analyzes performance in terms of stability, constraint satisfaction, c
 
 
 ## System Dynamics
-The spring-mass-damper system is modeled and discretized for MPC implementation. The system dynamics capture the relationship between mass displacement, velocity, spring force, and damping force.  
+The spring-mass-damper system is modeled and discretized for MPC implementation. The discrete time dynamics read as follow: 
 
-The discrete-time state-space model is used to predict future states over the MPC horizon, forming the basis for the optimization problem.
+$$
+x_{k+1} = A x_k + B u_k
+$$
+where:  
+- \(x_k\) is the state vector at time step \(k\) (displacement and velocity),  
+- \(u_k\) is the control input,  
+- \(A\) and \(B\) are the discrete-time system matrices derived from the continuous-time dynamics.  
 
 ## Controller Design
 MPC controllers are formulated with short prediction horizons and incorporate terminal sets to ensure stability and feasibility:  
