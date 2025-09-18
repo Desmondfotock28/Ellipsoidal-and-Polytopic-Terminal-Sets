@@ -59,7 +59,12 @@ K = (R + B_d^\top P B_d)^{-1} B_d^\top P A_d
 ```
 - **Constraints:**
 - **Polytopic Terminal Sets:**
-  A polytopic terminal set is a convex polytope in the state space that serves as a target set for the system states at the end of a finite time horizon in MPC. Incorporating this set helps guarantee that the system states will remain within a specified region, thereby improving stability and performance. For a spring-mass-damper system, this can mean more precise control of oscillations and damping behavior. The terminal set is constructed iteratively by computing the maximum invariant set for the closed-loop system. 
+  A polytopic terminal set is a convex polytope in the state space that serves as a target set for the system states at the end of a finite time horizon in MPC. Incorporating this set helps guarantee that the system states will remain within a specified region, thereby improving stability and performance. For a spring-mass-damper system, this can mean more precise control of oscillations and damping behavior. The terminal set is constructed iteratively by computing the maximum invariant set for the closed-loop system.
+  
+Given the  state and input constraint sets:
+```math
+\mathcal{X} := \{ x \mid F x \le 1 \}, \quad \mathcal{U} := \{ u \mid G u \le 1 \}
+```
   
 - **Ellipsoidal Terminal Sets:** Compact representation of the state space, but involve more complex optimization.  
 
