@@ -87,11 +87,12 @@ E_z = \{ z \;|\; z^\top P_z z \le 1 \}
 It can be determined by solving the semidefinite program for the positively invariant ellipsoidal set:
 ```math
 \begin{aligned}
-& \max_{S, H} && \log \det(S_{xx}) \\
+& \max_{S, H} \log \det(S_{xx}) \\
 & \text{subject to} \\
-& && S \Psi S^\top \succeq 0, && \text{(LMI in } S \text{)} \\
-& && S [F + G K G_E H]^\top [F + G K G_E H] S \succeq 0, && \text{(LMI in } S \text{)} and H \\
-& && e_i^\top H e_i \le 1, && i = 1, \dots, n_c
+\begin{bmatrix}
+S \Psi S^\top & \Psi S S \\
+(\Psi S S)^\top & \cdot
+\end{bmatrix} \succeq 0
 \end{aligned}
 ```
 
