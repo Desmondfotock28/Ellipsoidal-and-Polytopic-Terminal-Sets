@@ -40,7 +40,7 @@ def integrateOpenLoop(x0, U, steps, dt=1e-3):
 
 # integrate dynamics with 0 control input
 
-steps = 200
+steps = 400
 
 x0 = np.array([0.68,0.68])
 
@@ -220,7 +220,7 @@ solver_output = solver(**solver_input)
 x_opt = solver_output['x'] 
 
 #simulation time 
-Nmpc=50
+Nmpc=200
 
 
 def run_closed_loop_mpc(x0, Nmpc, lbx, ubx, lbg, ubg, solver, system):
@@ -232,6 +232,9 @@ def run_closed_loop_mpc(x0, Nmpc, lbx, ubx, lbg, ubg, solver, system):
     # xxx
     X_traj = [x0]
     U_traj = []
+    t0 = 0.0
+    t = [t0]
+    Ts = 0.0
 
     for _ in range(Nmpc):
 
@@ -254,11 +257,17 @@ def run_closed_loop_mpc(x0, Nmpc, lbx, ubx, lbg, ubg, solver, system):
         # update data lists
         X_traj.append(x_k)
         U_traj.append(u_k)
-        
-    return X_traj, U_traj
+        t0 = t0 + Ts
+        t.append(t0)
+    t = np.array(t)
+    return X_traj, U_traj, t
 
 
-X_traj, U_traj = run_closed_loop_mpc(x0, Nmpc, lbx, ubx, lbg, ubg, solver, system)
+X_traj, U_traj, t= run_closed_loop_mpc(x0, Nmpc, lbx, ubx, lbg, ubg, solver, system)
+
+#np.save("X_optimal",X_traj)
+#np.save("U_optimal",U_traj)
+np.save("t_p",t)
 
 #plot trajectories 
 

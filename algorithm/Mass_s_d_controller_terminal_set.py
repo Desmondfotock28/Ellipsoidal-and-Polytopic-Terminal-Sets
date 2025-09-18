@@ -145,8 +145,8 @@ F = np.array([[ 1, 0],
               [ 0,-1]])
 
 # input constraints matrix
-G = np.array([[ 4/3],
-              [-4/3]])
+G = np.array([[ 25/17],
+              [-25/17]])
 
 # state feedback matrix
 #K = np.array([[-1, -1]])
@@ -228,8 +228,8 @@ for k in range(N):
     g.append(x_k_next - x_k_next_calc)
     # 03
     # input constraints
-    lb_u.append(-0.75)
-    ub_u.append(0.75)
+    lb_u.append(-0.68)
+    ub_u.append(0.68)
 
      # state constraints
     lb_x.append(-np.ones((nx,1)))
@@ -266,7 +266,7 @@ g = vertcat(*g)
 lbg = vertcat(*lb_g)
 ubg = vertcat(*ub_g)
 
-sim_steps=330
+sim_steps= 200
 # solver creation
 prob = {'f':J,'x':xu,'g':g}
 solver_with_terminal_set = nlpsol('solver','ipopt',prob)
@@ -276,6 +276,9 @@ X_traj, U_traj = run_closed_loop_mpc(x0, sim_steps, lbxu, ubxu, lbg, ubg,  solve
 end_time = time.time()
 elapsed_time = end_time - start_time
 print(f"Elapsed time: {elapsed_time} seconds")
+
+np.save("X_optimal_ts",X_traj)
+np.save("U_optimal_ts",U_traj)
 
 plot_traj(X_traj, U_traj)
 

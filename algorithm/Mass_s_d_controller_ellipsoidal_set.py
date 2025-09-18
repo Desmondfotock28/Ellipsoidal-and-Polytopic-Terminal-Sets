@@ -119,7 +119,6 @@ def run_closed_loop_mpc(x0, Nmpc, lbx, ubx, lbg, ubg, solver, system):
     # initial state
     x_k = x0
     nx = x0.shape[0]
-
     # xxx
     X_traj = [x0]
     U_traj = []
@@ -143,6 +142,7 @@ def run_closed_loop_mpc(x0, Nmpc, lbx, ubx, lbg, ubg, solver, system):
         # update data lists
         X_traj.append(x_k)
         U_traj.append(u_k)
+        
         
     return X_traj, U_traj
 
@@ -209,7 +209,7 @@ K = -np.array(K)
 F = np.array([[ 1, 0],[-1, 0],[ 0, 1],[ 0,-1],[ 0,0],[ 0,0]])
 
 # input constraints matrix
-G = np.array([[0], [0],[0], [0],[ 4/3],[-4/3]])
+G = np.array([[0], [0],[0], [0],[ 25/17],[-25/17]])
 
 # state feedback matrix
 #K = np.array([[-1, -1]])
@@ -348,8 +348,8 @@ for k in range(N):
     g.append(x_k_next - x_k_next_calc)
     # 03
     # input constraints
-    lb_u.append(-0.75)
-    ub_u.append(0.75)
+    lb_u.append(-0.68)
+    ub_u.append(0.68)
 
      # state constraints
     lb_x.append(-np.ones((nx,1)))
@@ -384,7 +384,7 @@ g = vertcat(*g)
 lbg = vertcat(*lb_g)
 ubg = vertcat(*ub_g)
 
-sim_steps=330
+sim_steps=200
 # solver creation
 prob = {'f':J,'x':xu,'g':g}
 solver_with_terminal_set = nlpsol('solver','ipopt',prob)
@@ -394,5 +394,11 @@ X_traj, U_traj = run_closed_loop_mpc(x0, sim_steps, lbxu, ubxu, lbg, ubg,  solve
 end_time = time.time()
 elapsed_time = end_time - start_time
 print(f"Elapsed time: {elapsed_time} seconds")
+
+
+np.save("X_optimal_Es",X_traj)
+np.save("U_optimal_Es",U_traj)
+
+
 plot_traj(X_traj, U_traj)
   
