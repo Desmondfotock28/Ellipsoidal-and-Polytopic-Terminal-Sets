@@ -106,7 +106,7 @@ where $e_i$ is the ith column of the identity matrix and $\Psi$ is given by:
 ```math
 \Psi =
 \begin{bmatrix}
-A + B K & B_E \\
+A + B K & BE \\
 0 & M
 \end{bmatrix}
 ```
