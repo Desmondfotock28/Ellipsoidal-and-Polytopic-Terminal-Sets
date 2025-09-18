@@ -49,9 +49,18 @@ Q =\begin{bmatrix}
 \quad
 R = 1
 ```
-
-
-- **Polytopic Terminal Sets:** Represented by linear inequalities, simple to compute.  
+The Discrete-time Algebraic Riccati equation (DARE) is solved to obtain $P$:
+```math
+P = A_d^\top P A_d - A_d^\top P B_d (R + B_d^\top P B_d)^{-1} B_d^\top P A_d + Q
+```
+The LQR gain $K$ is computed as:
+```math
+K = (R + B_d^\top P B_d)^{-1} B_d^\top P A_d
+```
+- **Constraints:**
+- **Polytopic Terminal Sets:**
+  A polytopic terminal set is a convex polytope in the state space that serves as a target set for the system states at the end of a finite time horizon in MPC. Incorporating this set helps guarantee that the system states will remain within a specified region, thereby improving stability and performance. For a spring-mass-damper system, this can mean more precise control of oscillations and damping behavior. The terminal set is constructed iteratively by computing the maximum invariant set for the closed-loop system. 
+  
 - **Ellipsoidal Terminal Sets:** Compact representation of the state space, but involve more complex optimization.  
 
 The MPC optimization problem is solved at each time step to compute optimal control inputs while respecting system constraints.
