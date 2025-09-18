@@ -135,7 +135,7 @@ As usual in MPC, at time instant k ∈ N, our Optimal Control Problem read as fo
 + u_{k+i|k}^\top R u_{k+i|k} \right), \\
 \text{s.t.} \quad & x_{k+i+1|k} = A x_{k+i|k} + B u_{k+i|k}, 
 \quad \forall i \in \mathbb{I}_{[0,N-1]}, \\
-& x_{k|k} = x_k \sim X_0, \\
+& x_{k|k} = x_k, \\
 & -1.0 \leq x_{k+i|k} \leq 1.0, \\
 & -0.68 \leq u_{k+i|k} \leq 0.68 \\
 & x_{k+N|k} \in \mathbb{X}_f.
