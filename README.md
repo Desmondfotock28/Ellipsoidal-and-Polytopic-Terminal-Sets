@@ -59,8 +59,9 @@ K = (R + B_d^\top P B_d)^{-1} B_d^\top P A_d
 ```
 - **Constraints:**
  State and input constraints are defined as:
+```math
 -1 \le x_1 \le 1, \quad -1 \le x_2 \le 1, \quad -0.68 \le F_{\text{ext}} \le 0.68
-  
+```
 - **Polytopic Terminal Sets:**
   A polytopic terminal set is a convex polytope in the state space that serves as a target set for the system states at the end of a finite time horizon in MPC. Incorporating this set helps guarantee that the system states will remain within a specified region, thereby improving stability and performance. For a spring-mass-damper system, this can mean more precise control of oscillations and damping behavior. The terminal set is constructed iteratively by computing the maximum invariant set for the closed-loop system.
   
