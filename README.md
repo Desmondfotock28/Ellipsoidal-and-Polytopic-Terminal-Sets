@@ -200,7 +200,7 @@ The MPC solver is using [CasADi](https://web.casadi.org/).
 
 - **CasADi Framework**: [Symbolic computation for optimization](https://casadi.org/)
 - **Multiple Shooting Methods**: Bock & Plitt (1984)
-- **Project Paper**: Fomelack Desmond Fotock¹, Max Charles Heischmann², Harshdeep Singh³, Nasim Vosoughi Osgouei⁴, *Terminal Sets - Group 1.2* (2025), [GitHub Repository](https://github.com/yourusername/yourrepo)
+- **Project Paper**: Fomelack Desmond Fotock¹, Max Charles Heischmann², Harshdeep Singh³, Nasim Vosoughi Osgouei⁴, *Terminal Sets - Group 1.2* (2024), [GitHub Repository](https://github.com/yourusername/yourrepo)
 
 
 
