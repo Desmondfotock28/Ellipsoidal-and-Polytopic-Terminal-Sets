@@ -65,6 +65,15 @@ Given the  state and input constraint sets:
 ```math
 \mathcal{X} := \{ x \mid F x \le 1 \}, \quad \mathcal{U} := \{ u \mid G u \le 1 \}
 ```
+The maximal positively invariant set is described by
+```math
+\Omega = \left\{ x \;\middle|\; F(A + BK)^i x \le 1, \; G K (A + BK)^i x \le 1, \; i = 0, \dots, n_f \right\}
+```
+where $n_f$ is the smallest integer such that
+```math
+F (A + BK)^{n_f + 1} x \le 1, \quad G K (A + BK)^{n_f + 1} x \le 1
+```
+hold for all $x$ in $\Omega$
   
 - **Ellipsoidal Terminal Sets:** Compact representation of the state space, but involve more complex optimization.  
 
