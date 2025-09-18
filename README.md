@@ -126,15 +126,29 @@ E =
 I_{nu} & 0 & \cdots & 0
 \end{bmatrix}
 ```
-The MPC optimization problem is solved at each time step to compute optimal control inputs while respecting system constraints.
+**Problem Formulation:**
+As usual in MPC, at time instant k ∈ N, our Optimal Control Problem read as follow:
+```math
+\begin{aligned}
+\min_{u_k, x_k} \quad & x_{k+N|k}^\top P x_{k+N|k} 
++ \sum_{i=0}^{N-1} \left( x_{k+i|k}^\top Q x_{k+i|k} 
++ u_{k+i|k}^\top R u_{k+i|k} \right), \\
+\text{s.t.} \quad & x_{k+i+1|k} = A x_{k+i|k} + B u_{k+i|k}, 
+\quad \forall i \in \mathbb{I}_{[0,N-1]}, \\
+& x_{k|k} = x_k, \\
+& -1.0 \leq x_{k+i|k} \leq 1.0, \\
+& -0.68 \leq u_{k+i|k} \leq 0.68 \\
+& x_{k+N|k} \in \mathbb{X}_f.
+\end{aligned}
+```
+Horizon: $N=2$, Sampling time: $T_s = 0.1$
 
-## Simulation Results
-Simulations compare the performance of MPC controllers with polytopic and ellipsoidal terminal sets. Key observations include:  
+The MPC solver is using [CasADi](https://web.casadi.org/).
+## Simulation Results 
+ **Polytopic Terminal Sets:**
+  The figure below shows the closed-loop optimal state trajectories for **N = 2**:  
 
-- Impact on system stability and closed-loop response.  
-- Constraint satisfaction during control.  
-- Computational efficiency and solver performance.  
-
-Visualization scripts generate plots showing state trajectories, control inputs, and terminal set effects for comparison.
+- MPC scheme **without** polytopic terminal set constraints  
+- MPC scheme **with** polytopic terminal set constraints
 
 
