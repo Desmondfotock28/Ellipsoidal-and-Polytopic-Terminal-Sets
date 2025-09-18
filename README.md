@@ -126,8 +126,20 @@ E =
 I_{nu} & 0 & \cdots & 0
 \end{bmatrix}
 ```
-The MPC optimization problem is solved at each time step to compute optimal control inputs while respecting system constraints.
-
+**Problem Formulation:**
+As usual in MPC, at time instant k ∈ N, our Optimal Control Problem read as follow:
+```math
+\begin{aligned}
+\min_{u_k, x_k} \quad & x_{k+N|k}^\top P x_{k+N|k} 
++ \sum_{i=0}^{N-1} \left( x_{k+i|k}^\top Q x_{k+i|k} 
++ u_{k+i|k}^\top R u_{k+i|k} \right), \\
+\text{s.t.} \quad & x_{k+i+1|k} = A x_{k+i|k} + B u_{k+i|k}, 
+\quad \forall i \in \mathbb{I}_{[0,N-1]}, \\
+& x_{k|k} = x_k \sim X_0 \in \mathbb{X} \subseteq \mathbb{R}^{n_x}, \\
+& -1.0 \leq x_{k+i|k} \leq 1.0, \\
+& -0.68 \leq u_{k+i|k} \leq 0.68.
+\end{aligned}
+```
 ## Simulation Result (Ongoing)
 Simulations compare the performance of MPC controllers with polytopic and ellipsoidal terminal sets. Key observations include:  
 
