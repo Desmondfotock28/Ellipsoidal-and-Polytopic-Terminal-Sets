@@ -164,6 +164,22 @@ The MPC solver is using [CasADi](https://web.casadi.org/).
 </div>
 
  **Ellipsoidal Terminal Sets:**
+ 
+- MPC scheme **without** ellipsoidal terminal set constraints  
+- MPC scheme **with** ellipsoidal terminal set constraints
+
+      **1. States trajectories:**
+  <div align="center">
+  <img src="photos/state_trajectories_es.png" alt="States trajecories" height="300"><br>
+  <sub><b>State Trajectories for N=2 without(Left) and with(right) ellipsoidal terminal set</b></sub>
+</div>
+
+   **2. Control trajectories:**
+  <div align="center">
+  <img src="photos/control_trajectories_es.png" alt="Control trajecories" height="300"><br>
+  <sub><b>Control Trajectories for N=2 without(Left) and with(right) ellipsoidal terminal set</b></sub>
+</div>
+
 
 
 
