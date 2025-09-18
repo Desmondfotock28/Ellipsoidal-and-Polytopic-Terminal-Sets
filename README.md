@@ -86,19 +86,21 @@ E_z = \{ z \;|\; z^\top P_z z \le 1 \}
 ```
 It can be determined by solving the semidefinite program for the positively invariant ellipsoidal set:
 ```math
-    \max_{(S,H)} \log \det(S_{xx}) \\ 
-Subject to:
-    \begin{bmatrix}
-        S & \Psi S \\
-        S^\top & S
-    \end{bmatrix} \succeq 0 \quad \text{which is an LMI in } S\\
-
-    \begin{bmatrix}
-        H & [F + GKGE]S \\ 
-        S & [F + GKGE]^\top S
-    \end{bmatrix} \succeq 0  \quad \text{LMI in } S \text{ and } H\\
-
-    e_i^\top H e_i \leq 1, \quad i = 1, ..., n_c  
+\begin{align}
+\max_{S, H} \;& \log \det(S_{xx}) \\
+\text{subject to:} \;& 
+\begin{bmatrix}
+S & \Psi S \\
+S^\top & S
+\end{bmatrix} \succeq 0, \quad \text{(LMI in } S \text{)} \\
+& 
+\begin{bmatrix}
+H & [F + G K G_E] S \\
+S & [F + G K G_E]^\top S
+\end{bmatrix} \succeq 0, \quad \text{(LMI in } S \text{ and } H\text{)} \\
+& e_i^\top H e_i \le 1, \quad i = 1, \dots, n_c
+\end{align}
+ 
 ```
 
 The MPC optimization problem is solved at each time step to compute optimal control inputs while respecting system constraints.
