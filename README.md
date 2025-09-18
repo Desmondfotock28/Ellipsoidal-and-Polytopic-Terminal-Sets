@@ -16,12 +16,12 @@ where:
 - $x_k$ is the state vector at time step \(k\) (displacement and velocity),  
 - $u_k$ is the control input,  
 - $A$ and $B$ are the discrete-time system matrices determine based on the parameters
-$m$(mass), $c$(spring constant), §d$(damping factor), and $∆t$(sampling time) as:
+$m$(mass), $c$ (spring constant), $d$ (damping factor), and $∆t$ (sampling time) as:
 ```math
 A = 
 \begin{bmatrix}
 1 & \Delta t \\
--\frac{k}{m} \Delta t & 1 - \frac{d}{m} \Delta t
+-\frac{c}{m} \Delta t & 1 - \frac{d}{m} \Delta t
 \end{bmatrix}, 
 \quad
 B = 
