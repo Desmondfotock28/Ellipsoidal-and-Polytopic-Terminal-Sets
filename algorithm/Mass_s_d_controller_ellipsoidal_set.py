@@ -5,7 +5,7 @@ from control import  dare
 import cvxpy as cp
 import time
 
-start_time = time.time()
+
 
 #Function definition
 def plot_ellipsoid(P_x):
@@ -122,6 +122,7 @@ def run_closed_loop_mpc(x0, Nmpc, lbx, ubx, lbg, ubg, solver, system):
     # xxx
     X_traj = [x0]
     U_traj = []
+    t_comp = []
     for _ in range(Nmpc):
 
         # update initial condition
@@ -129,8 +130,11 @@ def run_closed_loop_mpc(x0, Nmpc, lbx, ubx, lbg, ubg, solver, system):
         ubx[:nx]=x_k
 
         # solve MPC problem
+        start_time = time.time()
         res = solver(lbx=lbx,ubx=ubx,lbg=lbg,ubg=ubg)
-
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        t_comp.append(elapsed_time)
         # extract optimal input
         u_k = res['x'][(N+1)*nx:(N+1)*nx+nu,:]
 
@@ -143,8 +147,8 @@ def run_closed_loop_mpc(x0, Nmpc, lbx, ubx, lbg, ubg, solver, system):
         X_traj.append(x_k)
         U_traj.append(u_k)
         
-        
-    return X_traj, U_traj
+    t_comp = np.array(t_comp)    
+    return X_traj, U_traj, t_comp
 
 # Define system parameters
 m = 3.0 
@@ -389,13 +393,11 @@ sim_steps=350
 prob = {'f':J,'x':xu,'g':g}
 solver_with_terminal_set = nlpsol('solver','ipopt',prob)
 
-X_traj, U_traj = run_closed_loop_mpc(x0, sim_steps, lbxu, ubxu, lbg, ubg,  solver_with_terminal_set, system)
+X_traj, U_traj, t_comp= run_closed_loop_mpc(x0, sim_steps, lbxu, ubxu, lbg, ubg,  solver_with_terminal_set, system)
 
-end_time = time.time()
-elapsed_time = end_time - start_time
-print(f"Elapsed time: {elapsed_time} seconds")
+t_mean = np.mean(t_comp)
 
-
+print(t_mean)
 np.save("X_optimal_Es",X_traj)
 np.save("U_optimal_Es",U_traj)
 

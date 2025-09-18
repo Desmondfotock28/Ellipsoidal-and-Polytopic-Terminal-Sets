@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from casadi import *
 from control import  dare
+import time
 
 # Define system parameters
 m = 3.0 
@@ -95,7 +96,7 @@ lb_u = -0.68 * np.ones((nu, 1))
 ub_u = 0.68 * np.ones((nu, 1))
 
 # discretisation
-N = 2
+N = 20
 
 X = SX.sym("X", (N + 1) * nx, 1)
 U = SX.sym("U", N * nu, 1)
@@ -235,7 +236,7 @@ def run_closed_loop_mpc(x0, Nmpc, lbx, ubx, lbg, ubg, solver, system):
     t0 = 0.0
     t = [t0]
     Ts = 0.0
-
+    t_comp =[]
     for _ in range(Nmpc):
 
         # update initial condition
@@ -244,8 +245,10 @@ def run_closed_loop_mpc(x0, Nmpc, lbx, ubx, lbg, ubg, solver, system):
     
     
         # solve MPC problem
+        start_time = time.time()
         res = solver(lbx=lbx,ubx=ubx,lbg=lbg,ubg=ubg)
-    
+        solver_time = time.time()-start_time
+        t_comp.append(solver_time)
         # extract optimal input
         u_k = res['x'][(N+1)*nx:(N+1)*nx+nu,:]
 
@@ -260,11 +263,14 @@ def run_closed_loop_mpc(x0, Nmpc, lbx, ubx, lbg, ubg, solver, system):
         t0 = t0 + Ts
         t.append(t0)
     t = np.array(t)
-    return X_traj, U_traj, t
+    t_comp = np.array(t_comp)
+    return X_traj, U_traj, t,t_comp
 
 
-X_traj, U_traj, t= run_closed_loop_mpc(x0, Nmpc, lbx, ubx, lbg, ubg, solver, system)
+X_traj, U_traj, t, t_comp= run_closed_loop_mpc(x0, Nmpc, lbx, ubx, lbg, ubg, solver, system)
 
+t_mean =np.mean(t_comp)
+print(t_mean)
 np.save("X_optimal",X_traj)
 np.save("U_optimal",U_traj)
 
