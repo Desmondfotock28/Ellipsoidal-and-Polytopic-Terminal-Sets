@@ -266,7 +266,7 @@ g = vertcat(*g)
 lbg = vertcat(*lb_g)
 ubg = vertcat(*ub_g)
 
-sim_steps= 200
+sim_steps= 350
 # solver creation
 prob = {'f':J,'x':xu,'g':g}
 solver_with_terminal_set = nlpsol('solver','ipopt',prob)

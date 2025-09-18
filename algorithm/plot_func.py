@@ -119,10 +119,6 @@ def plot_traj_comparison(X_traj, U_traj, X_traj_ts, U_traj_ts,
     plt.show()
 
 
-
-
-
-
 ub_x=  np.array([1, 1])
 ub_u = np.array([0.68])
 

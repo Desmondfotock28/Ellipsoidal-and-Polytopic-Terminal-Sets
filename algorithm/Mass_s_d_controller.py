@@ -220,7 +220,7 @@ solver_output = solver(**solver_input)
 x_opt = solver_output['x'] 
 
 #simulation time 
-Nmpc=200
+Nmpc=350
 
 
 def run_closed_loop_mpc(x0, Nmpc, lbx, ubx, lbg, ubg, solver, system):
@@ -265,9 +265,9 @@ def run_closed_loop_mpc(x0, Nmpc, lbx, ubx, lbg, ubg, solver, system):
 
 X_traj, U_traj, t= run_closed_loop_mpc(x0, Nmpc, lbx, ubx, lbg, ubg, solver, system)
 
-#np.save("X_optimal",X_traj)
-#np.save("U_optimal",U_traj)
-np.save("t_p",t)
+np.save("X_optimal",X_traj)
+np.save("U_optimal",U_traj)
+
 
 #plot trajectories 
 
