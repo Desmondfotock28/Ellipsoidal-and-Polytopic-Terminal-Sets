@@ -95,8 +95,8 @@ S^\top & S
 \end{bmatrix} \succeq 0, \quad \text{(LMI in } S \text{)} \\
 & 
 \begin{bmatrix}
-H & [F + G K G_E] S \\
-S & [F + G K G_E]^\top S
+H & [F + G K GE] S \\
+S & [F + G K GE]^\top S
 \end{bmatrix} \succeq 0, \quad \text{(LMI in } S \text{ and } H\text{)} \\
 & e_i^\top H e_i \le 1, \quad i = 1, \dots, n_c
 \end{align}
