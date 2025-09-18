@@ -35,10 +35,22 @@ B =
 
 ## MPC Controller Design
 MPC controllers are formulated with short prediction horizons and incorporate terminal sets to ensure stability and feasibility: 
+
 The quadratic cost function to be minimized is:
 ```math
 J = \sum_{k=0}^{N-1} x_k^\top Q x_k + \sum_{k=0}^{N-1} u_k^\top R u_k + x_N^\top P x_N
 ```
+with weighting matrices:
+```math
+\begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}, 
+\quad
+R = 1
+```
+
+
 - **Polytopic Terminal Sets:** Represented by linear inequalities, simple to compute.  
 - **Ellipsoidal Terminal Sets:** Compact representation of the state space, but involve more complex optimization.  
 
