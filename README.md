@@ -102,7 +102,30 @@ S & [F + G K G_E]^\top S
 \end{align}
  
 ```
-
+where $e_i$ is the ith column of the identity matrix and $\Psi$ is given by:
+```math
+\Psi =
+\begin{bmatrix}
+A + 0 B K & B_E \\
+M & \cdot
+\end{bmatrix}
+```
+```math
+$M$ and $E$ are given by
+M =
+\begin{bmatrix}
+0 & I_{nu} & 0 & \cdots & 0 \\
+0 & 0 & I_{nu} & \cdots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \cdots & I_{nu} \\
+0 & 0 & 0 & \cdots & 0
+\end{bmatrix}, 
+\quad
+E = 
+\begin{bmatrix}
+I_{nu} & 0 & \cdots & 0
+\end{bmatrix}
+```
 The MPC optimization problem is solved at each time step to compute optimal control inputs while respecting system constraints.
 
 ## Simulation Results
