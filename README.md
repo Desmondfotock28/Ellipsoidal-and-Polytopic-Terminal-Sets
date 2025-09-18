@@ -89,14 +89,14 @@ It can be determined by solving the semidefinite program for the positively inva
     \max_{(S,H)} \log \det(S_{xx}) 
 Subject to:
     \begin{bmatrix}
-        S &; \Psi S \\
-        S^\top &; S
-    \end{bmatrix} \succeq 0 \quad \text{which is an LMI in } S  
+        S & \Psi S \\
+        S^\top & S
+    \end{bmatrix} \succeq 0 \quad \text{which is an LMI in } S  \\
 
     \begin{bmatrix}
-        H &; [F + GKGE]S \\ 
-        S &; [F + GKGE]^\top S
-    \end{bmatrix} \succeq 0  \quad \text{LMI in } S \text{ and } H  
+        H & [F + GKGE]S \\ 
+        S & [F + GKGE]^\top S
+    \end{bmatrix} \succeq 0  \quad \text{LMI in } S \text{ and } H \\
 
     e_i^\top H e_i \leq 1, \quad i = 1, ..., n_c  
 ```
