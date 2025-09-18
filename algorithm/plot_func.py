@@ -125,8 +125,8 @@ ub_u = np.array([0.68])
 
 controls = np.load('U_optimal.npy')
 states  = np.load('X_optimal.npy')
-controls_ts = np.load('U_optimal_ts.npy')
-states_ts  = np.load('X_optimal_ts.npy')
+controls_ts = np.load('U_optimal_Es.npy')
+states_ts  = np.load('X_optimal_Es.npy')
 #t_p = np.load('time_full.npy')
 
 plot_traj_comparison(states, controls, states_ts, controls_ts, ub_x, ub_u)
