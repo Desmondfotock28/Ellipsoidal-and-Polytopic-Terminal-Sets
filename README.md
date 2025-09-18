@@ -142,13 +142,7 @@ As usual in MPC, at time instant k ∈ N, our Optimal Control Problem read as fo
 \end{aligned}
 ```
 Horizon: $N=2$ (short), $N=10$ (long),  Sampling time: $T_s = 0.1$
-## Simulation Result (Ongoing)
-Simulations compare the performance of MPC controllers with polytopic and ellipsoidal terminal sets. Key observations include:  
-
-- Impact on system stability and closed-loop response.  
-- Constraint satisfaction during control.  
-- Computational efficiency and solver performance.  
-
-Visualization scripts generate plots showing state trajectories, control inputs, and terminal set effects for comparison.
+The MPC solver is using [CasADi](https://web.casadi.org/).
+## Simulation Results 
 
 
