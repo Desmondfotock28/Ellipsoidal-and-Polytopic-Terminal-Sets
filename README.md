@@ -79,7 +79,21 @@ F (A + BK)^{n_f + 1} x \le 1, \quad G K (A + BK)^{n_f + 1} x \le 1
 ```
 hold for all $x$ in $\Omega$
   
-- **Ellipsoidal Terminal Sets:** Compact representation of the state space, but involve more complex optimization.  
+- **Ellipsoidal Terminal Sets:** Ellipsoids are very popular as candidate invariant sets.
+The ellipsoidal set is defined as:
+```math
+E_z = \{ z \;|\; z^\top P_z z \le 1 \}
+```
+It can be determined by solving the semidefinite program for the positively invariant ellipsoidal set:
+```math
+\begin{aligned}
+& \max_{S, H} && \log \det(S_{xx}) \\
+& \text{subject to} \\
+& && S \Psi S^\top \succeq 0, && \text{(LMI in } S \text{)} \\
+& && S [F + G K G_E H]^\top [F + G K G_E H] S \succeq 0, && \text{(LMI in } S \text{)} and H \\
+& && e_i^\top H e_i \le 1, && i = 1, \dots, n_c
+\end{aligned}
+```
 
 The MPC optimization problem is solved at each time step to compute optimal control inputs while respecting system constraints.
 
