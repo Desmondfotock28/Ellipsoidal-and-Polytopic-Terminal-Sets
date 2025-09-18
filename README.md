@@ -128,7 +128,7 @@ I_{nu} & 0 & \cdots & 0
 ```
 The MPC optimization problem is solved at each time step to compute optimal control inputs while respecting system constraints.
 
-## Simulation Results
+## Simulation Result (Ongoing)
 Simulations compare the performance of MPC controllers with polytopic and ellipsoidal terminal sets. Key observations include:  
 
 - Impact on system stability and closed-loop response.  
