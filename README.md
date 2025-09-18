@@ -164,6 +164,37 @@ The MPC solver is using [CasADi](https://web.casadi.org/).
 </div>
 
  **Ellipsoidal Terminal Sets:**
+ 
+- MPC scheme **without** ellipsoidal terminal set constraints  
+- MPC scheme **with** ellipsoidal terminal set constraints
+
+  **1. States trajectories:**
+  <div align="center">
+  <img src="photos/state_trajectories_es.png" alt="States trajecories" height="300"><br>
+  <sub><b>State Trajectories for N=2 without(Left) and with(right) ellipsoidal terminal set</b></sub>
+</div>
+
+   **2. Control trajectories:**
+  <div align="center">
+  <img src="photos/control_trajectories_es.png" alt="Control trajecories" height="300"><br>
+  <sub><b>Control Trajectories for N=2 without(Left) and with(right) ellipsoidal terminal set</b></sub>
+</div>
+
+## Performance Comparison 
+
+| Horizon | Number of constraints | Mean computational time | Value cost   |
+|---------|------------------------|--------------------|--------------|
+| N = 10  | 20                     | 31.672 ms             | 1.389e-07    |
+| N = 2 (Polytopic)   | 604           | 96.495 ms            | 0.00042      |
+| N = 2 (Ellipsoidal) | 21            | 34.489 ms             | 0.00016      |
+
+### System Specifications
+- **Laptop Model:**  Lenovo  
+- **Processor:** Intel(R) Core(TM) i7-1165G7 CPU @ 2.80GHz  
+- **RAM:** 16 GB  
+- **Operating System:** Windows 11 Pro 64-bit  
+- **Python Version:** 3.10  
+- **CasADi Version:** 3.6.5
 
 
 
