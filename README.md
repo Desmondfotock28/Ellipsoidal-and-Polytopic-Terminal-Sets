@@ -145,5 +145,10 @@ Horizon: $N=2$ (short), $N=10$ (long),  Sampling time: $T_s = 0.1$
 
 The MPC solver is using [CasADi](https://web.casadi.org/).
 ## Simulation Results 
+- **Polytopic Terminal Sets:**
+  The figure below shows the closed-loop optimal state trajectories for **N = 2**:  
+
+- MPC scheme **without** polytopic terminal set constraints  
+- MPC scheme **with** polytopic terminal set constraints
 
 
