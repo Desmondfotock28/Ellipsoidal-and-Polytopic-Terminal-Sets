@@ -42,7 +42,7 @@ J = \sum_{k=0}^{N-1} x_k^\top Q x_k + \sum_{k=0}^{N-1} u_k^\top R u_k + x_N^\top
 ```
 with weighting matrices:
 ```math
-\begin{bmatrix}
+Q =\begin{bmatrix}
 1 & 0 \\
 0 & 1
 \end{bmatrix}, 
