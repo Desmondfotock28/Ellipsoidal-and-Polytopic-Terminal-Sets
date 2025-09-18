@@ -137,7 +137,7 @@ As usual in MPC, at time instant k ∈ N, our Optimal Control Problem read as fo
 \quad \forall i \in \mathbb{I}_{[0,N-1]}, \\
 & x_{k|k} = x_k \sim X_0 \in \mathbb{X} \subseteq \mathbb{R}^{n_x}, \\
 & -1.0 \leq x_{k+i|k} \leq 1.0, \\
-& -0.68 \leq u_{k+i|k} \leq 0.68.
+& -0.68 \leq u_{k+i|k} \leq 0.68 \\
 & x_{k+N|k} \in \mathbb{X}_f.
 \end{aligned}
 ```
