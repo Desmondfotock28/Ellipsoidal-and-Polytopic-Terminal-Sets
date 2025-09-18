@@ -150,5 +150,11 @@ The MPC solver is using [CasADi](https://web.casadi.org/).
 
 - MPC scheme **without** polytopic terminal set constraints  
 - MPC scheme **with** polytopic terminal set constraints
+  
+  <div align="center">
+  <img src="photos/state_trajectories_ts.png" alt="States trajecories" height="300"><br>
+  <sub><b>State Trajectories for N=2 without(Left) and with(right) polytopic terminal set</b></sub>
+</div>
+
 
 
