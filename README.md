@@ -141,7 +141,7 @@ As usual in MPC, at time instant k ∈ N, our Optimal Control Problem read as fo
 & x_{k+N|k} \in \mathbb{X}_f.
 \end{aligned}
 ```
-Horizon: $N=2$ (short), $N=10$ (long),  Sampling time: $T_s = 0.1$
+Horizon: $N=2$, Sampling time: $T_s = 0.1$
 
 The MPC solver is using [CasADi](https://web.casadi.org/).
 ## Simulation Results 
