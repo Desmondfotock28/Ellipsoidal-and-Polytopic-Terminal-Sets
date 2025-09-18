@@ -110,8 +110,8 @@ A + B K & BE \\
 0 & M
 \end{bmatrix}
 ```
-```math
 $M$ and $E$ are given by
+```math
 M =
 \begin{bmatrix}
 0 & I_{nu} & 0 & \cdots & 0 \\
