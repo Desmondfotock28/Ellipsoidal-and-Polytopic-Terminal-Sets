@@ -196,6 +196,12 @@ The MPC solver is using [CasADi](https://web.casadi.org/).
 - **Python Version:** 3.10  
 - **CasADi Version:** 3.6.5
 
+## References & Resources
+
+- **CasADi Framework**: [Symbolic computation for optimization](https://casadi.org/)
+- **Multiple Shooting Methods**: Bock & Plitt (1984)
+- **Project Paper**: Fomelack Desmond Fotock¹, Max Charles Heischmann², Harshdeep Singh³, Nasim Vosoughi Osgouei⁴, *Terminal Sets - Group 1.2* (2025), [GitHub Repository](https://github.com/yourusername/yourrepo)
+
 
 
 
