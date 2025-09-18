@@ -180,6 +180,13 @@ The MPC solver is using [CasADi](https://web.casadi.org/).
   <sub><b>Control Trajectories for N=2 without(Left) and with(right) ellipsoidal terminal set</b></sub>
 </div>
 
+## PERFORMANCE COMPARISON
+
+| Horizon | Number of constraints | Computational time | Value cost   |
+|---------|------------------------|--------------------|--------------|
+| N = 10  | 20                     | 2.39 s             | 1.389e-07    |
+| N = 2 (Polytopic)   | 604           | 16.65 s            | 0.00042      |
+| N = 2 (Ellipsoidal) | 21            | 2.90 s             | 0.00016      |
 
 
 
