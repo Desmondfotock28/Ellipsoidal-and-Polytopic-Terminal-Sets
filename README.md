@@ -188,6 +188,14 @@ The MPC solver is using [CasADi](https://web.casadi.org/).
 | N = 2 (Polytopic)   | 604           | 96.495 ms            | 0.00042      |
 | N = 2 (Ellipsoidal) | 21            | 34.489 ms             | 0.00016      |
 
+### System Specifications
+- **Laptop Model:**  Lenovo  
+- **Processor:** Intel(R) Core(TM) i7-1165G7 CPU @ 2.80GHz  
+- **RAM:** 16 GB  
+- **Operating System:** Windows 11 Pro 64-bit  
+- **Python Version:** 3.10  
+- **CasADi Version:** 3.6.5
+
 
 
 
